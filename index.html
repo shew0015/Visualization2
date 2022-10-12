@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiple Visualisations | An Example</title>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="datavisualisation2.js"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+
+</head>
+
+<body>
+    <div class="page">
+        <h1>Weather in Australia</h1>
+        <p">This visualisation highlights the weather conditions in Australia.</p>
+        <br>
+        <!-- pure grid group -->
+        <h1 class="content-subhead">Exploring Windspeed in the 8 Major Cities of Australia</h1>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Windspeed (km/hr)</h2>
+                <p>This section explores the windspeed (km/hr) averaged over 10 minutes before 9 am in the 8 major cities of Australia. </p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-u-1-1">
+            <h4>Wind Speed (km/hr) Averaged Over 10 Minutes Prior to 9:00 a.m. in the 8 Major Cities of Australia From 2008 to 2016</h4>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis1" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h3>Analysis: </h3>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-left">Based on the results above, Melbourne had the highest yearly averaged windspeed (km/hr) prior to 9:00 a.m. from 2008 to 2016, Brisbane had the lowest yearly averaged windspeed (km/hr) prior to 9:00 a.m. from 2008 to 2016.  </p>
+                <p>Windspeed (km/hr) is measured by the difference in air pressure between two points. This indicates that the air pressure differences in Melbourne is high. The highest yearly averaged windspeed (km/hr) prior to 9:00 a.m. from 2008 to 2016 in Melbourne is 21.16 km/hr, and the year is 2012. </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-right">Windspeed (km/hr) is affected by factors such as temperature, centripetal force, rotation of Earth, etc. Windspeed might also be affected by other weather conditions such as humidity (%), pressure (hPa). The next section explores the correlation between humidity (%) and windspeed (km/hr), and the correlation between pressure (hPa) and windspeed (km/hr). </p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <h1 class="content-subhead" style="page-break-before: always">Exploring Humidity and Pressure in Melbourne</h1>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Humidity (%) and Pressure (hPa)</h2>
+                <p>This section explores the correlation between humidity (%) and windspeed (km/hr), and the correlation between pressure (hPa) and windspeed(km/hr). </p>
+                <p>Humidity (%) is measured at 9 am and pressure (hPa) is measured at 9 am reduced to mean sea level. </p>
+                <p><b>Note: the data explored are Melbourne’s weather data.</b></p>
+            </div>
+        </div>
+
+        <!-- pure grid group -->
+        <div class="pure-u-1-1">
+            <h4>Humidity (%) VS Wind Speed (km/hr) Over 10 Minutes Prior to 9:00 a.m. in Melbourne</h4>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis2" class="vis-container"></div>
+            </div>
+        </div>
+        <div class="pure-u-1-1">
+            <h4>Pressure (hpa) VS Wind Speed (km/hr) Over 10 Minutes Prior to 9:00 a.m. in Melbourne</h4>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis3" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h3>Analysis: </h3>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-left">Based on the results above, the correlation between humidity (%) and windspeed (km/hr) is low, as specified by the low correlation of determination value, 0.24. </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-right">Additionally, the correlation between pressure (hPa) and windspeed(km/hr) is also low, as specified by the low correlation of determination value, 0.10. </p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <h1 class="content-subhead">Exploring Rainfall in Melbourne</h1>
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Rainfall (mm)</h2>
+                <p>This section explores the rainfall (mm) in Melbourne from 2009 to 2014. </p>
+                <p><b>Note: some rainfall (mm) data is missing, but this does not affect the overall investigation in daily rainfall (mm) in Melbourne. </b></p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        
+        <!-- pure grid group -->
+        <div class="pure-u-1-1">
+            <h4>Daily Rainfall (mm) From 2009 to 2014 in Melbourne</h4>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="vis4" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        
+        <!-- pure grid group -->
+        <div class="pure-u-1-1">
+            <h4>Yearly Averaged Rainfall (mm) from 2009 to 2014 in Melbourne</h4>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="vis5" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h3>Analysis: </h3>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-left">Based on the results above, rainfall (mm) in Melbourne is low and consistent from 2009 to 2014. There are no specific patterns or trends. Based on the ‘Yearly Averaged Rainfall (mm) in Melbourne from 2009 to 2014, the highest yearly averaged rainfall (mm) in Melbourne is in 2011, and the lowest is in 2009. </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-right">The average rainfall (mm) in 2011 in Melbourne is 2.54 mm, whilst the average rainfall (mm) in 2009 in Melbourne is 1.23 mm, highlighting that there is not much difference between them. This also demonstrates that rainfall (mm) in Melbourne is consistently low. </p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <h1 class="content-subhead">Exploring Maximum Temperature in Melbourne</h1>
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Maximum Temperature (°C)</h2>
+                <p>This section explores the maximum temperature (°C) in Melbourne from 2009 to 2014. </p>
+                <p><b>Note: some maximum temperature (°C) data is missing.</b> Maximum temperature (°C) data for April 2001, December 2013 and February 2013 are missing. Since maximum temperature (°C) patterns are consistent every year, readers are encouraged to ignore these missing values. </p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        
+        <!-- pure grid group -->
+        <div class="pure-u-1-1">
+            <h4>Daily Maximum Temperature (°C) in Melbourne from 2009 to 2014 in Melbourne</h4>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis6" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        
+        <!-- pure grid group -->
+        <div class="pure-u-1-1">
+            <h4>Averaged Monthly Maximum Temperature (°C) From 2009 to 2014 in Melbourne</h4>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis7" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h3>Analysis: </h3>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-left">Based on the results above, December to February have high maximum temperatures, which corresponds to the summer period. June to August have low maximum temperatures, which corresponds to the winter period. </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-right">The maximum temperatures (°C) did not change a lot across the years and was consistently throughout. </p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+    </div>
+
+</body>

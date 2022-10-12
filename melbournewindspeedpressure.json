@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/shew0015/Visualization2/main/weather_melbourne_windspeed_humidity_pressure_9am.csv"
+    },
+    "width": 790,
+    "height": 300,
+    "title": "Pressure (hpa) VS Wind Speed (km/hr) Over 10 Minutes Prior to 9:00 a.m. in Melbourne",
+    "layer": [
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 50,
+                "color": "#d63638"
+            },
+            "encoding": {
+                "x": {
+                    "field": "WindSpeed9am",
+                    "type": "quantitative",
+                    "title": "Wind Speed (km/hr)"
+                },
+                "y": {
+                    "field": "Pressure9am",
+                    "type": "quantitative",
+                    "title": "Pressure (hpa)"
+                }
+            }
+        },
+        {
+            "transform": [
+                {
+                    "regression": "Pressure9am",
+                    "on": "WindSpeed9am",
+                    "params": true
+                },
+                {
+                    "calculate": "'R²: '+format(datum.rSquared, '.2f')",
+                    "as": "R2"
+                }
+            ],
+            "mark": {
+                "type": "text",
+                "color": "#8a2424",
+                "x": "width",
+                "align": "right",
+                "y": -5
+            },
+            "encoding": {
+                "text": {
+                    "type": "nominal",
+                    "field": "R2"
+                }
+            }
+        }
+    ]
+}
